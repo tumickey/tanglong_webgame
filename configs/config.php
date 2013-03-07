@@ -13,6 +13,7 @@ define("COMPILE_DIR","templates_c");
 define("CACHE_DIR","cache");
 define("CONFIG_DIR","configs");
 define("ISCACHE",false);
+define("ISDEBUG",true);
 
 $dbhost = "localhost";
 $dbname  = "nhatky3";

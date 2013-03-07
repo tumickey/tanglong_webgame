@@ -7,8 +7,8 @@
  * To change this template use File | Settings | File Templates.
  */
 
-require('./../configs/config.php');
-require(SMARTY_DIR . 'Smarty.class.php');
+
+require('Smarty.class.php');
 
 // smarty configuration
 class TangLong_Smarty extends Smarty {
@@ -19,6 +19,7 @@ class TangLong_Smarty extends Smarty {
         $this->setConfigDir(CONFIG_DIR  );
         $this->setCacheDir(CACHE_DIR );
          $this->caching = ISCACHE;
+        $this->debugging = ISDEBUG;
     }
 }
 

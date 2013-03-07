@@ -7,7 +7,7 @@
 
 require('./libs/Smarty.class.php');
 include_once './configs/config.php';
-include 'libs/tanglong_setup.php';
+include_once './libs/tanglong_setup.php';
 
 $tanglong = new TangLong;
 // set the current action
@@ -17,8 +17,6 @@ switch($_action) {
 
     case 'play_game':
         $username = 'tumickey';
-
-
         $tanglong->Play_Game($gamehost,$gameport,$serverId,$serverName,$resource,$username);
         break;
     case 'index':
