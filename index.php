@@ -7,24 +7,22 @@
 
 require('./libs/Smarty.class.php');
 include_once './configs/config.php';
+include 'libs/tanglong_setup.php';
 
-include_once './libs/common.php';
-$smarty = new Smarty;
-#$smarty->debugging = true;
+$tanglong = new TangLong;
+// set the current action
+$_action = isset($_REQUEST['action']) ? $_REQUEST['action'] : 'play_game';
 
-$smarty->assign('gamehost',$gamehost);
-$smarty->assign('gameport',$gameport);
-$smarty->assign('serverId',$serverId);
-$smarty->assign('serverName',$serverName);
-$smarty->assign('resource',$resource);
-$opengameid = sysmd5('tumickey'.'bycdca2012');
-$smarty->assign('opengameid',$opengameid);
+switch($_action) {
 
-//$smarty->force_compile = true;
-
-$smarty->caching = false;
+    case 'play_game':
+        $username = 'tumickey';
 
 
-
-$smarty->display('index.tpl');
-
+        $tanglong->Play_Game($gamehost,$gameport,$serverId,$serverName,$resource,$username);
+        break;
+    case 'index':
+    default:
+        $tanglong->Index();
+        break;
+}
